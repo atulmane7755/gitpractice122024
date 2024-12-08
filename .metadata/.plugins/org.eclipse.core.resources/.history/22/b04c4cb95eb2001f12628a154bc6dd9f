@@ -1,0 +1,10 @@
+package com.atul.Dec0424;
+
+/**
+ * Hello world!
+ */
+public class App {
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+    }
+}

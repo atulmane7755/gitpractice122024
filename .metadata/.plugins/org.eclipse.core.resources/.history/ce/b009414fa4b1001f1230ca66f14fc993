@@ -1,0 +1,34 @@
+package com.atul;
+
+/**
+ * Hello world!
+ */
+public class App {
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+        Configuration cfg=new Configuration();
+        cfg.configure("employee.cfg.xml");
+        SessionFactory factory=cfg.buildSessionFactory();
+        Session session=factory.openSession();
+        Transaction t=session.beginTransaction();
+        00:48:19 Faculty (Olympus): //creating question
+        Question q1=new Question();
+        Answer answer=new Answer();
+        Answer answer1=new Answer();
+        q1.setQuestionId(101);
+        q1.setQuestion("What is Association");
+        answer.setAnswerId(201);
+        answer.setAnswer("One class communicate with another class");
+        answer1.setAnswerId(202);
+        answer1.setAnswer("It is also known as mapping");
+        List<Answer> list=new ArrayList<Answer>();
+        list.add(answer);
+        list.add(answer1);
+        q1.setAnswer(list);
+        session.save(answer);
+        session.save(answer1);
+        session.save(q1);
+        t.commit();
+        factory.close();
+    }
+}
